@@ -1,0 +1,159 @@
+//
+//Written by GowinSynthesis
+//Product Version "V1.9.8.11"
+//Sun Apr 16 23:06:02 2023
+
+//Source file index table:
+//file0 "\C:/Users/bkesk/Desktop/gw/Tek_Port_Ram/src/Ram.v"
+`timescale 100 ps/100 ps
+module ram (
+  clk,
+  sinyal,
+  veri,
+  adres,
+  veri2
+)
+;
+input clk;
+input sinyal;
+input [7:0] veri;
+input [7:0] adres;
+output [7:0] veri2;
+wire clk_d;
+wire sinyal_d;
+wire [7:0] veri_d;
+wire [7:0] adres_d;
+wire [7:0] veri2_d;
+wire [31:8] DO;
+wire VCC;
+wire GND;
+  IBUF clk_ibuf (
+    .O(clk_d),
+    .I(clk) 
+);
+  IBUF sinyal_ibuf (
+    .O(sinyal_d),
+    .I(sinyal) 
+);
+  IBUF veri_0_ibuf (
+    .O(veri_d[0]),
+    .I(veri[0]) 
+);
+  IBUF veri_1_ibuf (
+    .O(veri_d[1]),
+    .I(veri[1]) 
+);
+  IBUF veri_2_ibuf (
+    .O(veri_d[2]),
+    .I(veri[2]) 
+);
+  IBUF veri_3_ibuf (
+    .O(veri_d[3]),
+    .I(veri[3]) 
+);
+  IBUF veri_4_ibuf (
+    .O(veri_d[4]),
+    .I(veri[4]) 
+);
+  IBUF veri_5_ibuf (
+    .O(veri_d[5]),
+    .I(veri[5]) 
+);
+  IBUF veri_6_ibuf (
+    .O(veri_d[6]),
+    .I(veri[6]) 
+);
+  IBUF veri_7_ibuf (
+    .O(veri_d[7]),
+    .I(veri[7]) 
+);
+  IBUF adres_0_ibuf (
+    .O(adres_d[0]),
+    .I(adres[0]) 
+);
+  IBUF adres_1_ibuf (
+    .O(adres_d[1]),
+    .I(adres[1]) 
+);
+  IBUF adres_2_ibuf (
+    .O(adres_d[2]),
+    .I(adres[2]) 
+);
+  IBUF adres_3_ibuf (
+    .O(adres_d[3]),
+    .I(adres[3]) 
+);
+  IBUF adres_4_ibuf (
+    .O(adres_d[4]),
+    .I(adres[4]) 
+);
+  IBUF adres_5_ibuf (
+    .O(adres_d[5]),
+    .I(adres[5]) 
+);
+  IBUF adres_6_ibuf (
+    .O(adres_d[6]),
+    .I(adres[6]) 
+);
+  IBUF adres_7_ibuf (
+    .O(adres_d[7]),
+    .I(adres[7]) 
+);
+  OBUF veri2_0_obuf (
+    .O(veri2[0]),
+    .I(veri2_d[0]) 
+);
+  OBUF veri2_1_obuf (
+    .O(veri2[1]),
+    .I(veri2_d[1]) 
+);
+  OBUF veri2_2_obuf (
+    .O(veri2[2]),
+    .I(veri2_d[2]) 
+);
+  OBUF veri2_3_obuf (
+    .O(veri2[3]),
+    .I(veri2_d[3]) 
+);
+  OBUF veri2_4_obuf (
+    .O(veri2[4]),
+    .I(veri2_d[4]) 
+);
+  OBUF veri2_5_obuf (
+    .O(veri2[5]),
+    .I(veri2_d[5]) 
+);
+  OBUF veri2_6_obuf (
+    .O(veri2[6]),
+    .I(veri2_d[6]) 
+);
+  OBUF veri2_7_obuf (
+    .O(veri2[7]),
+    .I(veri2_d[7]) 
+);
+  SP bellek_bellek_0_0_s (
+    .DO({DO[31:8],veri2_d[7:0]}),
+    .DI({GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,GND,veri_d[7:0]}),
+    .BLKSEL({GND,GND,GND}),
+    .AD({GND,GND,GND,adres_d[7:0],GND,GND,GND}),
+    .WRE(sinyal_d),
+    .CLK(clk_d),
+    .CE(VCC),
+    .OCE(GND),
+    .RESET(GND) 
+);
+defparam bellek_bellek_0_0_s.BIT_WIDTH=8;
+defparam bellek_bellek_0_0_s.BLK_SEL=3'b000;
+defparam bellek_bellek_0_0_s.READ_MODE=1'b0;
+defparam bellek_bellek_0_0_s.RESET_MODE="SYNC";
+defparam bellek_bellek_0_0_s.WRITE_MODE=2'b10;
+  VCC VCC_cZ (
+    .V(VCC)
+);
+  GND GND_cZ (
+    .G(GND)
+);
+  GSR GSR (
+    .GSRI(VCC) 
+);
+endmodule /* ram */
